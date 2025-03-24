@@ -1,6 +1,6 @@
 const PLAYLIST_ID = "PL358U6AJ8gNHlktIp7Z2su-XrJT29LZtK"; // Your playlist ID
-const TOTAL_PLAYLIST_DURATION = 7200; // Total duration of all songs in seconds (update this)
-const START_DATE = new Date("2024-03-01T00:00:00Z").getTime(); // Fixed playlist start date
+const TOTAL_PLAYLIST_DURATION = 7200; // Total duration of all songs in seconds (UPDATE THIS)
+const START_DATE = new Date("2025-03-25T00:00:00Z").getTime(); // Set today's date as start time
 
 const videoFrame = document.getElementById("videoFrame");
 
