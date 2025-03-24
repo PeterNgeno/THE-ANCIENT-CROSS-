@@ -1,6 +1,5 @@
 const API_KEY = YOUTUBE_API_KEY; // Directly use the Vercel environment variable
-const CHANNEL_ID = "
-    "; // Your YouTube channel ID
+const CHANNEL_ID = "UCYa7DlPOHk2yD9SQslhdW4g"; // Your YouTube channel ID
 const PLAYLIST_ID = "PL358U6AJ8gNHlktIp7Z2su-XrJT29LZtK"; // Your playlist ID
 const videoFrame = document.getElementById("videoFrame");
 
