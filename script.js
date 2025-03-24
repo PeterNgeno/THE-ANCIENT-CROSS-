@@ -1,17 +1,33 @@
-const API_KEY = "YOUR_YOUTUBE_API_KEY"; // Replace with your API key
-const CHANNEL_ID = "UCdUml69Y-wWj07Tr5R6uWmA"; // Replace with your channel ID
+const CHANNEL_ID = "UCdUml69Y-wWj07Tr5R6uWmA"; // Your YouTube Channel ID
 const PLAYLIST_ID = "PL358U6AJ8gNHlktIp7Z2su-XrJT29LZtK"; // Your playlist ID
-
 const videoFrame = document.getElementById("videoFrame");
+
+// Function to get API Key from Vercel backend
+async function getApiKey() {
+    try {
+        const response = await fetch("/api/getYoutubeKey"); // Fetch from Vercel serverless function
+        const data = await response.json();
+        return data.apiKey;
+    } catch (error) {
+        console.error("Error fetching API key:", error);
+        return null;
+    }
+}
 
 // Function to check if the channel is live
 async function checkLiveStream() {
+    const API_KEY = await getApiKey();
+    if (!API_KEY) {
+        console.error("API Key not available");
+        return;
+    }
+
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&eventType=live&type=video&key=${API_KEY}`;
-    
+
     try {
         const response = await fetch(url);
         const data = await response.json();
-        
+
         if (data.items.length > 0) {
             const liveVideoId = data.items[0].id.videoId;
             videoFrame.src = `https://www.youtube.com/embed/${liveVideoId}?autoplay=1`;
