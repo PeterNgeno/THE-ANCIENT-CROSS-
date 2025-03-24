@@ -1,0 +1,27 @@
+body {
+    background: url('https://source.unsplash.com/1600x900/?green,globe') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background: black;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+.video-container {
+    margin-top: 50px;
+}
