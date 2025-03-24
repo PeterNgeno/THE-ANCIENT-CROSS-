@@ -1,4 +1,4 @@
-const CHANNEL_ID = "UCdUml69Y-wWj07Tr5R6uWmA"; // Your YouTube Channel ID
+const CHANNEL_ID = "UCYa7DlPOHk2yD9SQslhdW4g"; // Your YouTube Channel ID
 const PLAYLIST_ID = "PL358U6AJ8gNHlktIp7Z2su-XrJT29LZtK"; // Your playlist ID
 const videoFrame = document.getElementById("videoFrame");
 
