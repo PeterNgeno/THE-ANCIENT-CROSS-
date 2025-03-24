@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     background-color: black;
     color: white;
@@ -7,14 +8,16 @@ body {
     padding: 0;
 }
 
-.title-container {
+/* Scrolling Title */
+.scrolling-title {
     background-color: black;
     color: white;
     padding: 10px 0;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 
+/* Video Section */
 .video-container {
     position: relative;
     width: 100%;
@@ -30,6 +33,7 @@ body {
     border: none;
 }
 
+/* Watermark */
 .watermark {
     position: fixed;
     top: 10px;
