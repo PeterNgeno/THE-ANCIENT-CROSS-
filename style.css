@@ -25,6 +25,8 @@ body {
     height: 56.25vw; /* Maintain 16:9 aspect ratio */
     max-height: 100vh;
     overflow: hidden;
+    pointer-events: none; /* Disable interaction */
+
 }
 
 .video-container iframe {
