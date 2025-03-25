@@ -1,34 +1,24 @@
-const PLAYLIST_ID = "PL358U6AJ8gNHlktIp7Z2su-XrJT29LZtK";
-const YOUTUBE_API_KEY = "YOUR_YOUTUBE_API_KEY"; // Replace with your API key
+const PLAYLIST_ID = "PL358U6AJ8gNHlktIp7Z2su-XrJT29LZtK"; // Your playlist ID
+const TOTAL_PLAYLIST_DURATION = 7200; // Total duration of all songs in seconds (UPDATE THIS)
+const START_DATE = new Date("2025-03-25T00:00:00Z").getTime(); // Set start time
 
-document.addEventListener("DOMContentLoaded", async () => {
-    const videoFrame = document.getElementById("videoFrame");
-    if (!videoFrame) {
-        console.error("Error: Video frame not found!");
-        return;
-    }
+const videoFrame = document.getElementById("videoFrame");
 
-    const apiUrl = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&maxResults=1&key=${YOUTUBE_API_KEY}`;
+function getOngoingTime() {
+    const currentTime = Date.now();
+    const elapsedTime = Math.floor((currentTime - START_DATE) / 1000); // Convert ms to seconds
+    return elapsedTime % TOTAL_PLAYLIST_DURATION; // Get the current position in loop
+}
 
-    try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+function loadLivePlaylist() {
+    const startTime = getOngoingTime(); // Get ongoing position in playlist
+    videoFrame.src = `https://www.youtube.com/embed/videoseries?list=${PLAYLIST_ID}&autoplay=1&mute=1&start=${startTime}&modestbranding=1&playsinline=1&rel=0`;
+}
 
-        if (!data.items || data.items.length === 0) {
-            console.error("Error: No videos found in the playlist.");
-            return;
-        }
+// Load the ongoing video position
+loadLivePlaylist();
 
-        const firstVideoId = data.items[0].snippet.resourceId.videoId;
-
-        // Set video initially muted to allow autoplay
-        videoFrame.src = `https://www.youtube.com/embed/${firstVideoId}?autoplay=1&mute=1&loop=1&playlist=${PLAYLIST_ID}`;
-
-        // Unmute on user interaction
-        document.body.addEventListener("click", () => {
-            videoFrame.src = `https://www.youtube.com/embed/${firstVideoId}?autoplay=1&loop=1&playlist=${PLAYLIST_ID}`;
-        }, { once: true }); // Runs only once
-    } catch (error) {
-        console.error("Error loading video:", error);
-    }
-});
+// Unmute when user interacts
+document.body.addEventListener("click", () => {
+    videoFrame.src = videoFrame.src.replace("&mute=1", ""); // Remove mute from URL
+}, { once: true }); // Ensures it runs only once
