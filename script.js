@@ -12,7 +12,7 @@ function getOngoingTime() {
 
 function loadLivePlaylist() {
     const startTime = getOngoingTime(); // Get ongoing position in playlist
-    videoFrame.src = `https://youtube.com/playlist?list=PL358U6AJ8gNGj0v-M7n9W8PUJ-4fKv3SS&si=xHtuJsoJUO7gv9fe`;
+    videoFrame.src = `https://www.youtube.com/embed/videoseries?list=${PLAYLIST_ID}&autoplay=1&mute=1`;
 }
 
 // Load the ongoing video position
