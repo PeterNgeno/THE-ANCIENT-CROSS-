@@ -11,11 +11,11 @@ async function loadFirstVideo() {
         const firstVideoId = data.items[0].snippet.resourceId.videoId;
         
         // Initially muted to allow autoplay
-        videoFrame.src = `https://www.youtube.com/embed/${firstVideoId}?autoplay=1&mute=1&loop=1&playlist=${PLAYLIST_ID}`;
+        videoFrame.src = `https://www.youtube.com/embed/videoseries?list=${PLAYLIST_ID}&autoplay=1&loop=1&rel=0&modestbranding=1&playsinline=1}`;
         
         // Unmute when user interacts
         document.body.addEventListener("click", () => {
-            videoFrame.src = `https://www.youtube.com/embed/${firstVideoId}?autoplay=1&loop=1&playlist=${PLAYLIST_ID}`;
+            videoFrame.src = `https://www.youtube.com/embed/videoseries?list=${PLAYLIST_ID}&autoplay=1&loop=1&rel=0&modestbranding=1&playsinline=1}`;
         }, { once: true }); // Ensures the event runs only once
     } catch (error) {
         console.error("Error loading video:", error);
