@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Ancient Cross STv</title>
 
-  <!-- Video.js CSS -->
-  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
-
   <style>
     body {
       margin: 0;
@@ -26,10 +23,23 @@
       margin-top: 10px;
     }
 
-    .video-js {
+    iframe {
       width: 100%;
-      max-width: 100%;
-      height: auto;
+      max-width: 560px;
+      height: 315px;
+      border: none;
+    }
+
+    .live-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: red;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      z-index: 100;
     }
   </style>
 </head>
@@ -44,32 +54,13 @@
 
   <!-- Video Section -->
   <div class="video-container">
-    <video
-      id="worship-video"
-      class="video-js vjs-default-skin"
-      controls
-      autoplay
-      muted
-      playsinline
-      loop
-      preload="auto"
-    >
-      <source src="videos/DAMU_YA_YESU_ILIYOMWAGIKA_YAWEZA_MAMBO_YOTE____6_July_2025(360p).mp4" type="video/mp4" />
-      Your browser does not support HTML5 video.
-    </video>
+    <div class="live-badge">LIVE</div>
+    <iframe 
+      src="https://www.youtube.com/embed/COfIJbrl-ig?autoplay=1&mute=0&loop=1&controls=1&modestbranding=1&rel=0&playsinline=1&playlist=COfIJbrl-ig"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    ></iframe>
   </div>
-
-  <!-- Video.js Script -->
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
-
-  <!-- Auto-unmute on tap -->
-  <script>
-    const player = videojs('worship-video');
-    document.body.addEventListener('click', () => {
-      player.muted(false);
-      player.play();
-    }, { once: true });
-  </script>
 
 </body>
 </html>
