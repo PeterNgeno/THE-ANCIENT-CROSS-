@@ -6,7 +6,7 @@
   <title>The Ancient Cross STv</title>
 
   <!-- Video.js CSS -->
-  <link href="https://youtu.be/COfIJbrl-ig?si=3MbNCmfQyMRK8hOq" rel="stylesheet" />
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 
   <style>
     body {
@@ -15,17 +15,20 @@
       color: white;
       font-family: Arial, sans-serif;
     }
+
     .scrolling-title {
       background: #000;
       padding: 10px;
     }
+
     .video-container {
       text-align: center;
-      padding-top: 10px;
+      margin-top: 10px;
     }
+
     .video-js {
       width: 100%;
-      max-width: 560px;
+      max-width: 100%;
       height: auto;
     }
   </style>
@@ -42,7 +45,7 @@
   <!-- Video Section -->
   <div class="video-container">
     <video
-      id="my-video"
+      id="worship-video"
       class="video-js vjs-default-skin"
       controls
       autoplay
@@ -51,17 +54,17 @@
       loop
       preload="auto"
     >
-      <source src="videos/live.mp4" type="video/mp4" />
+      <source src="videos/DAMU_YA_YESU_ILIYOMWAGIKA_YAWEZA_MAMBO_YOTE____6_July_2025(360p).mp4" type="video/mp4" />
       Your browser does not support HTML5 video.
     </video>
   </div>
 
   <!-- Video.js Script -->
-  <script src="https://youtu.be/COfIJbrl-ig?si=3MbNCmfQyMRK8hOq"></script>
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 
-  <!-- Unmute on First Click -->
+  <!-- Auto-unmute on tap -->
   <script>
-    const player = videojs('my-video');
+    const player = videojs('worship-video');
     document.body.addEventListener('click', () => {
       player.muted(false);
       player.play();
