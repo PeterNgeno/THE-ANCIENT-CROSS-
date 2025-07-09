@@ -11,19 +11,16 @@
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      overflow: hidden;
+    }
+
+    .scrolling-title {
+      background: #000;
+      padding: 10px;
     }
 
     .video-container {
-      position: relative;
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 10px;
+      text-align: center;
+      margin-top: 10px;
     }
 
     iframe {
@@ -42,27 +39,20 @@
       padding: 5px 10px;
       border-radius: 5px;
       font-weight: bold;
-      z-index: 10;
-    }
-
-    .scrolling-title {
-      background: #111;
-      color: #fff;
-      padding: 10px 0;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-    }
-
-    marquee {
-      font-size: 16px;
-      font-weight: bold;
+      z-index: 100;
     }
   </style>
 </head>
 <body>
 
-  <!-- Video Area -->
+  <!-- Scrolling Title -->
+  <div class="scrolling-title">
+    <marquee behavior="scroll" direction="left">
+      Welcome to: THE ANCIENT CROSS STv 24/7 WORSHIP AND PRAISES.
+    </marquee>
+  </div>
+
+  <!-- Video Section -->
   <div class="video-container">
     <div class="live-badge">LIVE</div>
     <iframe 
@@ -70,13 +60,6 @@
       allow="autoplay; encrypted-media"
       allowfullscreen
     ></iframe>
-  </div>
-
-  <!-- Scrolling Title Fixed at Bottom -->
-  <div class="scrolling-title">
-    <marquee behavior="scroll" direction="left">
-      Welcome to: THE ANCIENT CROSS STv 24/7 WORSHIP AND PRAISES.
-    </marquee>
   </div>
 
 </body>
